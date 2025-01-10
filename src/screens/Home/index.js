@@ -31,25 +31,25 @@ const Home = ({ navigation }) => {
         setCartItems(updateItems);
     }, [Items]);
 
-  
+
     useFocusEffect(
         useCallback(() => {
             if (status === 'idle') {
-                setLoading(true); 
+                setLoading(true);
                 dispatch(fetchItems())
                     .then(() => setLoading(false))
-                  
+
             }
         }, [status, dispatch])
     );
 
-  
+
 
 
     const onRefresh = () => {
-        dispatch (fetchItems((data) => setRefreshing(data)))
-      }
-    
+        dispatch(fetchItems((data) => setRefreshing(data)))
+    }
+
 
 
     const handleAddCart = (product) => {
@@ -69,7 +69,7 @@ const Home = ({ navigation }) => {
         <View style={styles.container}>
 
             {loading && (
-                <ActivityIndicator size="large" color={COLORS.blue} style={{height: SIZES.height, justifyContent: 'center', alignItems: 'center'}} />
+                <ActivityIndicator size="large" color={COLORS.blue} style={{ height: SIZES.height, justifyContent: 'center', alignItems: 'center' }} />
             )}
             <ScrollView
                 showsVerticalScrollIndicator={false}
@@ -97,6 +97,7 @@ const Home = ({ navigation }) => {
                                 mrp={item?.mrp}
                                 price={item?.price}
                                 name={"shoppingcart"}
+                                btn={true}
                                 children={cartItems[item?.id] ? "View Cart" : "Add to Cart"}
                                 onPresscart={
                                     cartItems[item?.id]
@@ -109,6 +110,7 @@ const Home = ({ navigation }) => {
                                         backgroundColor: COLORS.blue4,
                                     }
                                 }
+                                disabled ={true}
                             />
                         )}
                     />

@@ -9,16 +9,19 @@ export default StyleSheet.create({
     backgroundColor: COLORS.white,
     alignSelf: 'center',
     width: SIZES.width * 0.94,
-    marginVertical: SIZES.width * 0.03,
+
   },
   cartbox: {
     width: SIZES.width * 0.9,
-
+    backgroundColor: COLORS.white,
+    alignSelf: 'center',
+    borderWidth: 1,
+    borderColor: COLORS.lightGray
   },
   mainimg: {
-    width: SIZES.width * 0.3,
-    height: SIZES.height * 0.12,
-    borderWidth: 1
+    width: SIZES.width * 0.4,
+    height: SIZES.height * 0.2,
+
 
   },
   boxtext: {
@@ -43,20 +46,18 @@ export default StyleSheet.create({
   },
   bdg:
   {
-    color: COLORS.white,
-    fontSize: SIZES.width * 0.02,
+    color: COLORS.black,
+    fontSize: SIZES.width * 0.042,
     fontFamily: FONTS.semiBold,
 
   },
   bdgbox: {
-    position: 'absolute',
-    right: 0,
-    top: 0,
-    backgroundColor: COLORS.primary,
-    borderRadius:SIZES.width * .02,
-    width: SIZES.width * .04,
-    height: SIZES.width * .04,
+    backgroundColor: COLORS.white,
+    borderRadius: SIZES.width * .02,
+    width: SIZES.width * .08,
+    height: SIZES.width * .09,
     justifyContent: 'center',
     alignItems: 'center',
+    elevation: 5
   }
 });

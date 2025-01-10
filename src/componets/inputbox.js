@@ -1,15 +1,12 @@
 import {
   StyleSheet,
-  Text,
-  View,
-  Image,
+
   TextInput,
   TouchableOpacity,
-  Pressable,
 } from "react-native";
 import React from "react";
-import Ionicons from "react-native-vector-icons/Ionicons";
-import { COLORS, FONTS, SIZES,  } from "../constans";
+
+import { COLORS, FONTS, SIZES, } from "../constans";
 import AntDesign from 'react-native-vector-icons/AntDesign'
 const InputBox = ({
   placeholder,
@@ -22,7 +19,7 @@ const InputBox = ({
   inputboxstyle,
   placeholderstyle,
   onPress,
-name
+  name
 }) => {
 
 
@@ -50,7 +47,7 @@ name
         cursorColor={COLORS.primary}
 
       />
-     <AntDesign name={name} size={SIZES.width * 0.07} color={COLORS.black} />
+      <AntDesign name={name} size={SIZES.width * 0.07} color={COLORS.black} />
     </TouchableOpacity>
   );
 };
@@ -64,7 +61,7 @@ export default InputBox;
 const styles = StyleSheet.create({
   box1: {
     width: SIZES.width * 0.88,
-    // elevation: 4,
+
     borderWidth: 1.2,
     borderColor: COLORS.gray,
     borderRadius: 8,
@@ -73,7 +70,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     backgroundColor: COLORS.white,
-    paddingVertical:SIZES.height*0.008
+    paddingVertical: SIZES.height * 0.008
   },
   placeholdera: {
     ...FONTS.fourHundred,
@@ -83,7 +80,7 @@ const styles = StyleSheet.create({
     marginBottom: -3,
     width: SIZES.width * 0.78,
     height: SIZES.height * 0.056,
-    // backgroundColor:COLORS.primary,
+
   },
   label: {
     fontSize: 14,
@@ -93,5 +90,5 @@ const styles = StyleSheet.create({
     width: SIZES.width * 0.88,
   },
 
- 
+
 });

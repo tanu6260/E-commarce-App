@@ -9,6 +9,7 @@ import {
 import ButtonCustom from './button';
 import { COLORS, FONTS, SIZES } from '../constans';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import Addcartincdec from './addcartincdec';
 
 const MainCart = ({
     onPress,
@@ -29,7 +30,12 @@ const MainCart = ({
     rateSize,
     btnBox,
     btnText,
-    btndisabled
+    btndisabled,
+    btn,
+    incdec,
+    disabled,
+    qty,
+    onChangeValue
 }) => {
     const [active, setActive] = useState(false);
 
@@ -41,7 +47,8 @@ const MainCart = ({
         <TouchableOpacity
             activeOpacity={0.6}
             onPress={onPress}
-            style={[styles.cartbox, cartboxstyle]}>
+            style={[styles.cartbox, cartboxstyle]}
+            disabled={disabled}>
             <View>
                 <Image source={img} style={[styles.mainimg, imgbox]} />
                 <TouchableOpacity
@@ -66,15 +73,23 @@ const MainCart = ({
                 </Text>
 
                 <Text style={[styles.price, priceText]}>MRP  ₹{price}</Text>
+                {btn &&
+                    <ButtonCustom
+                        name={name}
+                        children={children}
+                        onPress={onPresscart}
+                        btnBox={btnBox}
+                        btnText={btnText}
+                        disabled={btndisabled}
+                    />
+                }
+                {incdec &&
+                    <Addcartincdec
+                        qty={qty}
+                        onChangeValue={onChangeValue}
 
-                <ButtonCustom
-                    name={name}
-                    children={children}
-                    onPress={onPresscart}
-                    btnBox={btnBox}
-                    btnText={btnText}
-                    disabled={btndisabled}
-                />
+                    />
+                }
             </View>
         </TouchableOpacity>
     );

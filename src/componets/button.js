@@ -9,14 +9,14 @@ import {
 } from 'react-native';
 import { COLORS, FONTS, SIZES } from '../constans';
 import AntDesign from 'react-native-vector-icons/AntDesign'
-const { height, width } = Dimensions.get('window');
+
 
 const ButtonCustom = ({
     onPress,
     children,
     disabled,
-    name , 
-    btnBox , 
+    name,
+    btnBox,
     btnText
 }) => {
     return (
@@ -25,7 +25,7 @@ const ButtonCustom = ({
             activeOpacity={0.6}
             disabled={disabled}
             style={[
-                styles.longButton , btnBox]}>
+                styles.longButton, btnBox]}>
 
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
 
@@ -41,7 +41,7 @@ const ButtonCustom = ({
                 </View>
 
                 <Text
-                    style={[styles.buttonText , btnText]}>
+                    style={[styles.buttonText, btnText]}>
                     {children}
                 </Text>
             </View>
@@ -52,7 +52,7 @@ const ButtonCustom = ({
 
 const styles = StyleSheet.create({
     longButton: {
-        width: width * 0.4,
+        width: SIZES.width * 0.4,
         backgroundColor: COLORS.primary,
         borderRadius: 10,
         alignItems: 'center',
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
         color: COLORS.white,
         textAlign: 'center',
         ...FONTS.fiveHundred,
-        fontSize: width * 0.036,
+        fontSize: SIZES.width * 0.036,
         marginBottom: -3,
     },
     iconbtnbox: {
@@ -74,8 +74,8 @@ const styles = StyleSheet.create({
         backgroundColor: COLORS.white,
         alignItems: 'center',
         justifyContent: 'center',
-        marginRight: width * 0.02,
-        marginLeft: width * -0.01,
+        marginRight: SIZES.width * 0.02,
+        marginLeft: SIZES.width * -0.01,
     },
 
 });
