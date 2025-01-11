@@ -23,6 +23,9 @@ const Home = ({ navigation }) => {
     const { products, cartItems: Items, status } = useSelector(state => state.cart);
 
 
+
+    console.log("cartItems", products)
+
     useEffect(() => {
         const updateItems = {};
         Items.forEach(item => {

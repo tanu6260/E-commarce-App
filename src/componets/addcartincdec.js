@@ -6,25 +6,34 @@ import {
     TouchableOpacity,
     StyleSheet,
 } from 'react-native';
+import { RNToasty } from 'react-native-toasty';
 
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import { COLORS, FONTS, SIZES } from '../constans';
 
 
 
-const Addcartincdec = ({ onChangeValue, qty = 0  }) => {
+const Addcartincdec = ({ onChangeValue, qty = 0}) => {
     const [incredecre, setIncredecre] = useState(qty);
 
     const handleDecrease = () => {
-        if (incredecre > -1) {
+        if (incredecre > 0) {
             setIncredecre(incredecre - 1);
             onChangeValue && onChangeValue(incredecre - 1);
+            RNToasty.Error({
+                position: 'top',
+                title: `Remove to Cart`,
+            })
         }
     };
 
     const handleIncrease = () => {
         setIncredecre(incredecre + 1);
         onChangeValue && onChangeValue(incredecre + 1);
+        RNToasty.Success({
+            position: 'top',
+            title: `Add to Cart`,
+        })
     };
 
     return (

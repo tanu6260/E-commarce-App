@@ -1,6 +1,5 @@
 
 import React from 'react';
-// import { createStackNavigator } from '@react-navigation/stack';
 import { COLORS, FONTS, SIZES } from '../../constans';
 import Home from '../../screens/Home';
 import AntDesign from 'react-native-vector-icons/AntDesign'
@@ -9,10 +8,15 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Profile from '../../screens/profile';
 import Cart from '../../screens/cart';
 import { StyleSheet } from 'react-native';
+import NewHome from '../../screens/newHome';
+import NewCart from '../../screens/newCart';
+import { useSelector } from 'react-redux';
 
 
 const Tab = createBottomTabNavigator();
 const BottomNavigator = () => {
+
+    const { totalQuantity } = useSelector(state => state.cart);
     return (
         <Tab.Navigator
             screenOptions={{
@@ -29,9 +33,29 @@ const BottomNavigator = () => {
 
                 },
             }}>
-            <Tab.Screen
+            {/* <Tab.Screen
                 name="Home"
                 component={Home}
+                options={{
+                    title: 'Home',
+                    tabBarIcon: ({ focused, color }) => (
+                        <Entypo
+
+                            name="home"
+                            size={SIZES.width * 0.06}
+                            color={color}
+                            style={styles.bottomTabIcon}
+                        />
+
+                    ),
+
+                }}
+            /> */}
+
+
+            <Tab.Screen
+                name="NewHome"
+                component={NewHome}
                 options={{
                     title: 'Home',
                     tabBarIcon: ({ focused, color }) => (
@@ -51,6 +75,34 @@ const BottomNavigator = () => {
 
 
             <Tab.Screen
+                name="NeWCart"
+                component={NewCart}
+                options={{
+                    title: 'Cart',
+                    tabBarIcon: ({ focused, color }) => (
+                        <AntDesign
+
+                            name="shoppingcart"
+                            size={SIZES.width * 0.06}
+                            color={color}
+                            style={styles.bottomTabIcon}
+                        />
+
+
+                    ),
+                    tabBarBadge: totalQuantity > 0 ? totalQuantity : null,
+                    tabBarBadgeStyle: {
+                        backgroundColor: COLORS.primary,
+                        color: COLORS.white,
+                    },
+
+                }}
+            />
+
+
+
+
+            {/* <Tab.Screen
                 name="Cart"
                 component={Cart}
                 options={{
@@ -67,7 +119,7 @@ const BottomNavigator = () => {
                     ),
 
                 }}
-            />
+            />  */}
 
 
             <Tab.Screen

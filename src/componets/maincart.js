@@ -35,7 +35,11 @@ const MainCart = ({
     incdec,
     disabled,
     qty,
-    onChangeValue
+    onChangeValue,
+    qly , 
+
+    totalprice
+    
 }) => {
     const [active, setActive] = useState(false);
 
@@ -72,7 +76,18 @@ const MainCart = ({
                     {title}
                 </Text>
 
+                
+                <Text numberOfLines={2} style={[styles.title, titlestyle]}>
+                    quantity : {qly}
+                </Text>
+
+
+
+
                 <Text style={[styles.price, priceText]}>MRP  ₹{price}</Text>
+
+
+                <Text style={[styles.price, priceText]}> Total MRP  ₹{totalprice}</Text>
                 {btn &&
                     <ButtonCustom
                         name={name}
